@@ -17,8 +17,8 @@ A [Minecraft](http://www.minecraft.net/) mod that adds various gems and their co
  ```
  gradle eclipse
  ```
- - Open eclipse and tell it to use the eclipse folder in this repo
- - To build the project; run the following command int the root of this repo:<br/>
+ - Open eclipse and set the workspace to the eclipse folder in this repo
+ - To build the project; run the following command in the root of this repo:<br/>
  ```
  gradle build
  ```
