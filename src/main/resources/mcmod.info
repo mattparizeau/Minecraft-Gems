@@ -1,0 +1,17 @@
+[
+{
+  "modid": "mattgems",
+  "name": "Gems",
+  "description": "This mod adds more gems which can be used to craft tools and armor.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "http://www.github.com/mattparizeau/gems/",
+  "updateUrl": "",
+  "authorList": ["Matthieu Parizeau"],
+  "credits": "Matthieu Parizeau for creating this mod",
+  "logoFile": "assets/mattgems/branding/logo.png",
+  "screenshots": [],
+  "dependencies": [],
+  "requiredMods": ["Forge"]
+}
+]
