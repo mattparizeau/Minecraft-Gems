@@ -11,13 +11,16 @@ A [Minecraft](http://www.minecraft.net/) mod that adds various gems and their co
  - Install [Eclipse](http://www.eclipse.org/)
  - Run the following commands in the root of this repo:<br/>
  ```
- gradle setupDecompWorkspace<br/>
- gradle eclipse<br/>
+ gradle setupDecompWorkspace
+ ```
+ <br/>
+ ```
+ gradle eclipse
  ```
  - Open eclipse and tell it to use the eclipse folder in this repo
  - To build the project; run the following command int the root of this repo:<br/>
  ```
- gradle build<br/>
+ gradle build
  ```
  
 ### Requirements
