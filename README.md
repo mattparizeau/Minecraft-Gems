@@ -4,9 +4,9 @@ A [Minecraft](http://www.minecraft.net/) mod that adds various gems and their co
 
 ### Credits
  - [Matthieu Parizeau](https://github.com/mattparizeau): Creating the mod
- - [Lex Manos](https://github.com/LexManos): [MinecraftForge](https://github.com/MinecraftForge/MinecraftForge)
- - [cpw](https://github.com/cpw): [FML](https://github.com/MinecraftForge/FML)
  - [Mojang](http://www.mojang.com/): Creating Minecraft
+ - [Lex Manos](https://github.com/LexManos): Creating [MinecraftForge](https://github.com/MinecraftForge/MinecraftForge)
+ - [Cpw](https://github.com/cpw): Creating [FML](https://github.com/MinecraftForge/FML)
  
 ### Compiling
  - Install [Gradle](http://www.gradle.org/)
