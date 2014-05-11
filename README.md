@@ -9,15 +9,15 @@ A [Minecraft](http://www.minecraft.net/) mod that adds various gems and their co
 ### Compiling
  - Install [Gradle](http://www.gradle.org/)
  - Install [Eclipse](http://www.eclipse.org/)
- - Run the following commands in the root of this repo:
+ - Run the following commands in the root of this repo:<br/>
  ```
- gradle setupDecompWorkspace
- gradle eclipse
+ gradle setupDecompWorkspace<br/>
+ gradle eclipse<br/>
  ```
  - Open eclipse and tell it to use the eclipse folder in this repo
- - To build the project; run the following command int the root of this repo:
+ - To build the project; run the following command int the root of this repo:<br/>
  ```
- gradle build
+ gradle build<br/>
  ```
  
 ### Requirements
