@@ -5,19 +5,22 @@ import com.matt.mods.gems.tabs.GTabs;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemSword;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 	
 public class ItemBasicSword extends ItemSword {
-
-	public ItemBasicSword(ToolMaterial toolmaterial)
+	
+	protected String name;
+	
+	public ItemBasicSword(String name, ToolMaterial toolmaterial)
 	{
 		super(toolmaterial);
+		this.name = name;
+		GameRegistry.registerItem(this, name);
 		this.setCreativeTab(GTabs.main);
 	}
 	
-	@Override
-	public Item setTextureName(String name)
+	public String getName()
 	{
-		return super.setTextureName(Gems.prefix + name);
+		return this.name;
 	}
-	
 }

@@ -6,19 +6,22 @@ import com.matt.mods.gems.tabs.GTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemShears;
 import net.minecraft.item.ItemSpade;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 	
 public class ItemBasicShovel extends ItemSpade {
-
-	public ItemBasicShovel(ToolMaterial toolmaterial)
+	
+	protected String name;
+	
+	public ItemBasicShovel(String name, ToolMaterial toolmaterial)
 	{
 		super(toolmaterial);
+		this.name = name;
+		GameRegistry.registerItem(this, name);
 		this.setCreativeTab(GTabs.main);
 	}
 	
-	@Override
-	public Item setTextureName(String name)
+	public String getName()
 	{
-		return super.setTextureName(Gems.prefix + name);
+		return this.name;
 	}
-	
 }

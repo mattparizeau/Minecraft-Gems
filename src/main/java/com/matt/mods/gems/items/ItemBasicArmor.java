@@ -7,50 +7,22 @@ import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 	
 public class ItemBasicArmor extends ItemArmor {
 
-	private String armorTexture = Gems.prefix + "textures/models/armor/";
+	protected String name;
 	
-	public ItemBasicArmor(ArmorMaterial material, int type)
+	public ItemBasicArmor(String name, ArmorMaterial material, int type)
 	{
 		super(material, 0, type);
+		this.name = name;
+		GameRegistry.registerItem(this, name);
 		this.setCreativeTab(GTabs.main);
 	}
 	
-	@Override
-	public Item setTextureName(String name)
+	public String getName()
 	{
-		this.setArmorTexture(name);
-		return super.setTextureName(Gems.prefix + name + "_" + getArmor());
+		return this.name;
 	}
-	
-	private String getArmor()
-	{
-		switch (this.armorType)
-		{
-			case 0: return "helmet";
-			case 1: return "chestplate";
-			case 2: return "leggings";
-			case 3: return "boots";
-		}
-		return "";
-	}
-	
-	private void setArmorTexture(String texture)
-	{
-		if (this.armorType == 0 || this.armorType == 1 || this.armorType == 3)
-		{
-			this.armorTexture += texture + "_layer_1.png";
-		} else {
-			this.armorTexture += texture + "_layer_2.png";
-		}
-	}
-	
-	@Override
-	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type)
-	{
-		return this.armorTexture;
-	}
-	
 }

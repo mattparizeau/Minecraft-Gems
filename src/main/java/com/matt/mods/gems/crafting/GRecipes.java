@@ -2,11 +2,10 @@ package com.matt.mods.gems.crafting;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import com.matt.mods.gems.blocks.GBlocks;
 import com.matt.mods.gems.items.GItems;
-
-import cpw.mods.fml.common.registry.GameRegistry;
 	
 public final class GRecipes {
 	

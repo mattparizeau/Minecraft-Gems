@@ -2,14 +2,16 @@ package com.matt.mods.gems.worldgen;
 
 import java.util.Random;
 
-import com.matt.mods.gems.blocks.GBlocks;
-
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
-import cpw.mods.fml.common.IWorldGenerator;
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.IWorldGenerator;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+
+import com.matt.mods.gems.blocks.GBlocks;
 	
 public final class GWorldGen implements IWorldGenerator {
 
@@ -24,7 +26,7 @@ public final class GWorldGen implements IWorldGenerator {
 		int x = chunkX * 16;
 		int z = chunkZ * 16;
 		
-		if (world.provider.dimensionId == 0)
+		if (world.provider.getDimensionId() == 0)
 		{
 			this.generateOre(random, world, x, z, 20, 8, 0, 64, GBlocks.sapphire_ore);
 			this.generateOre(random, world, x, z, 20, 8, 0, 64, GBlocks.ruby_ore);
@@ -39,7 +41,9 @@ public final class GWorldGen implements IWorldGenerator {
 			int x1 = random.nextInt(16) + x;
 			int y1 = random.nextInt(maxY - minY) + minY;
 			int z1 = random.nextInt(16) + z;
-			new WorldGenMinable(ore, amount).generate(world, random, x1, y1, z1);
+			BlockPos pos = new BlockPos(x1, y1, z1);
+	        IBlockState state = ore.getDefaultState();
+			new WorldGenMinable(state, amount).generate(world, random, pos);
 		}
 	}
 	

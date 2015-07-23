@@ -5,19 +5,22 @@ import com.matt.mods.gems.tabs.GTabs;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemAxe;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 	
 public class ItemBasicAxe extends ItemAxe {
-
-	public ItemBasicAxe(ToolMaterial toolmaterial)
+	
+	protected String name;
+	
+	public ItemBasicAxe(String name, ToolMaterial toolmaterial)
 	{
 		super(toolmaterial);
+		this.name = name;
+		GameRegistry.registerItem(this, name);
 		this.setCreativeTab(GTabs.main);
 	}
 	
-	@Override
-	public Item setTextureName(String name)
+	public String getName()
 	{
-		return super.setTextureName(Gems.prefix + name);
+		return this.name;
 	}
-	
 }

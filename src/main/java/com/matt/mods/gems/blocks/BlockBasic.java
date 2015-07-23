@@ -4,43 +4,49 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.init.Blocks;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
-import com.matt.mods.gems.Gems;
 import com.matt.mods.gems.items.GItems;
 import com.matt.mods.gems.tabs.GTabs;
 	
 public class BlockBasic extends Block {
 
-	public BlockBasic()
+	protected String name;
+	
+	public BlockBasic(String name)
 	{
-		this(Material.rock);
+		this(name, Material.rock);
 		this.setHardness(3.0F);
 		this.setResistance(5.0F);
 		this.setStepSound(Block.soundTypeStone);
 	}
 	
-	public BlockBasic(Material material)
+	public BlockBasic(String name, Material material)
 	{
 		super(material);
+		this.name = name;
+		GameRegistry.registerBlock(this, name);
 		this.setCreativeTab(GTabs.main);
 	}
 	
-	@Override
-	public Block setBlockTextureName(String name)
+	public String getName()
 	{
-		return super.setBlockTextureName(Gems.prefix + name);
+		return this.name;
 	}
 	
 	private Random rand = new Random();
     @Override
-    public int getExpDrop(IBlockAccess p_149690_1_, int p_149690_5_, int p_149690_7_)
+    public int getExpDrop(IBlockAccess world, BlockPos pos, int fortune)
     {
-        if (this.getItemDropped(p_149690_5_, rand, p_149690_7_) != Item.getItemFromBlock(this))
+        IBlockState state = world.getBlockState(pos);
+        Random rand = world instanceof World ? ((World)world).rand : new Random();
+        if (this.getItemDropped(state, rand, fortune) != Item.getItemFromBlock(this))
         {
             int j1 = 0;
 
@@ -55,9 +61,9 @@ public class BlockBasic extends Block {
     }
 	
 	@Override
-	public Item getItemDropped(int meta, Random random, int fortune)
+	public Item getItemDropped(IBlockState state, Random random, int fortune)
 	{
-		return GBlocks.sapphire_ore == this ? GItems.sapphire : (GBlocks.ruby_ore == this ? GItems.ruby : (GBlocks.peridot_ore == this ? GItems.peridot : super.getItemDropped(meta, random, fortune)));
+		return GBlocks.sapphire_ore == this ? GItems.sapphire : (GBlocks.ruby_ore == this ? GItems.ruby : (GBlocks.peridot_ore == this ? GItems.peridot : super.getItemDropped(state, random, fortune)));
 	}
 	
 }
